@@ -25,6 +25,14 @@ const MODEL_FEATURE: Record<string, FeatureFlags> = {
     reasoning: true,
   },
   TEXT_IMAGE: { text: true, doc: false, image: true, video: false },
+  // GPT-5.6: temperature / topP are not accepted, so no sampling params are sent
+  TEXT_IMAGE_NO_SAMPLING: {
+    text: true,
+    doc: false,
+    image: true,
+    video: false,
+    noSamplingParams: true,
+  },
   TEXT_IMAGE_REASONING: {
     text: true,
     doc: false,
@@ -641,6 +649,39 @@ export const modelMetadata: Record<string, ModelMetadata> = {
   'openai.gpt-oss-20b-1:0': {
     flags: MODEL_FEATURE.TEXT_ONLY,
     displayName: 'GPT OSS 20B',
+  },
+  // OpenAI GPT-5.6
+  // In-Region inference is not supported on the bedrock-runtime endpoint,
+  // so only the cross-region inference profiles are registered.
+  'global.openai.gpt-5.6-sol': {
+    flags: MODEL_FEATURE.TEXT_IMAGE_NO_SAMPLING,
+    displayName: 'GPT-5.6 Sol',
+  },
+  'us.openai.gpt-5.6-sol': {
+    flags: MODEL_FEATURE.TEXT_IMAGE_NO_SAMPLING,
+    displayName: 'GPT-5.6 Sol',
+  },
+  'global.openai.gpt-5.6-terra': {
+    flags: MODEL_FEATURE.TEXT_IMAGE_NO_SAMPLING,
+    displayName: 'GPT-5.6 Terra',
+  },
+  'us.openai.gpt-5.6-terra': {
+    flags: MODEL_FEATURE.TEXT_IMAGE_NO_SAMPLING,
+    displayName: 'GPT-5.6 Terra',
+  },
+  'global.openai.gpt-5.6-luna': {
+    flags: {
+      ...MODEL_FEATURE.TEXT_IMAGE_NO_SAMPLING,
+      ...MODEL_FEATURE.LIGHT,
+    },
+    displayName: 'GPT-5.6 Luna',
+  },
+  'us.openai.gpt-5.6-luna': {
+    flags: {
+      ...MODEL_FEATURE.TEXT_IMAGE_NO_SAMPLING,
+      ...MODEL_FEATURE.LIGHT,
+    },
+    displayName: 'GPT-5.6 Luna',
   },
   // Google
   'google.gemma-3-4b-it': {

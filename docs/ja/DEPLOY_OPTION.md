@@ -1074,6 +1074,12 @@ const envs: Record<string, Partial<StackInput>> = {
 "apac.amazon.nova-lite-v1:0",
 "jp.amazon.nova-2-lite-v1:0",
 "global.amazon.nova-2-lite-v1:0",
+"global.openai.gpt-5.6-sol",
+"global.openai.gpt-5.6-terra",
+"global.openai.gpt-5.6-luna",
+"us.openai.gpt-5.6-sol",
+"us.openai.gpt-5.6-terra",
+"us.openai.gpt-5.6-luna",
 "google.gemma-3-4b-it",
 "google.gemma-3-12b-it",
 "google.gemma-3-27b-it",
@@ -1310,6 +1316,12 @@ const envs: Record<string, Partial<StackInput>> = {
 "global.amazon.nova-2-lite-v1:0",
 "openai.gpt-oss-120b-1:0",
 "openai.gpt-oss-20b-1:0",
+"global.openai.gpt-5.6-sol",
+"global.openai.gpt-5.6-terra",
+"global.openai.gpt-5.6-luna",
+"us.openai.gpt-5.6-sol",
+"us.openai.gpt-5.6-terra",
+"us.openai.gpt-5.6-luna",
 "google.gemma-3-4b-it",
 "google.gemma-3-12b-it",
 "google.gemma-3-27b-it",
@@ -1318,6 +1330,9 @@ const envs: Record<string, Partial<StackInput>> = {
 "nvidia.nemotron-nano-9b-v2",
 "nvidia.nemotron-nano-12b-v2",
 ```
+
+> [!NOTE]
+> GPT-5.6 系 (`openai.gpt-5.6-*`) は Amazon Bedrock の仕様上 In-Region 推論に対応していません。必ず `global.` または `us.` の cross-region inference プロファイルを指定してください。`modelRegion` が米国・カナダ以外 (例: `ap-northeast-1`) の場合は `global.` のみ利用できます。
 
 このソリューションが対応している speech-to-speech モデルは以下です。
 

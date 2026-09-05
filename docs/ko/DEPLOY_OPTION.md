@@ -968,7 +968,13 @@ const envs: Record<string, Partial<StackInput>> = {
 "eu.amazon.nova-pro-v1:0",
 "eu.amazon.nova-lite-v1:0",
 "apac.amazon.nova-pro-v1:0",
-"apac.amazon.nova-lite-v1:0"
+"apac.amazon.nova-lite-v1:0",
+"global.openai.gpt-5.6-sol",
+"global.openai.gpt-5.6-terra",
+"global.openai.gpt-5.6-luna",
+"us.openai.gpt-5.6-sol",
+"us.openai.gpt-5.6-terra",
+"us.openai.gpt-5.6-luna"
 ```
 
 이 중 최소 하나는 `modelIds`에 정의되어야 합니다.
@@ -1170,8 +1176,17 @@ const envs: Record<string, Partial<StackInput>> = {
 "apac.amazon.nova-lite-v1:0",
 "apac.amazon.nova-micro-v1:0",
 "openai.gpt-oss-120b-1:0",
-"openai.gpt-oss-20b-1:0"
+"openai.gpt-oss-20b-1:0",
+"global.openai.gpt-5.6-sol",
+"global.openai.gpt-5.6-terra",
+"global.openai.gpt-5.6-luna",
+"us.openai.gpt-5.6-sol",
+"us.openai.gpt-5.6-terra",
+"us.openai.gpt-5.6-luna"
 ```
+
+> [!NOTE]
+> GPT-5.6 모델 (`openai.gpt-5.6-*`)은 Amazon Bedrock 사양상 In-Region 추론을 지원하지 않습니다. 반드시 `global.` 또는 `us.` 교차 지역 추론 프로필을 지정하세요. `modelRegion`이 미국·캐나다 이외 (예: `ap-northeast-1`)인 경우 `global.`만 사용할 수 있습니다.
 
 이 솔루션은 다음 음성-음성 모델을 지원합니다:
 

@@ -1055,6 +1055,12 @@ As of 2025/03, the multimodal models are:
 "apac.amazon.nova-lite-v1:0",
 "jp.amazon.nova-2-lite-v1:0",
 "global.amazon.nova-2-lite-v1:0",
+"global.openai.gpt-5.6-sol",
+"global.openai.gpt-5.6-terra",
+"global.openai.gpt-5.6-luna",
+"us.openai.gpt-5.6-sol",
+"us.openai.gpt-5.6-terra",
+"us.openai.gpt-5.6-luna",
 "google.gemma-3-4b-it",
 "google.gemma-3-12b-it",
 "google.gemma-3-27b-it",
@@ -1291,6 +1297,12 @@ This solution supports the following text generation models:
 "global.amazon.nova-2-lite-v1:0",
 "openai.gpt-oss-120b-1:0",
 "openai.gpt-oss-20b-1:0",
+"global.openai.gpt-5.6-sol",
+"global.openai.gpt-5.6-terra",
+"global.openai.gpt-5.6-luna",
+"us.openai.gpt-5.6-sol",
+"us.openai.gpt-5.6-terra",
+"us.openai.gpt-5.6-luna",
 "google.gemma-3-4b-it",
 "google.gemma-3-12b-it",
 "google.gemma-3-27b-it",
@@ -1299,6 +1311,9 @@ This solution supports the following text generation models:
 "nvidia.nemotron-nano-9b-v2",
 "nvidia.nemotron-nano-12b-v2",
 ```
+
+> [!NOTE]
+> The GPT-5.6 models (`openai.gpt-5.6-*`) do not support in-Region inference on Amazon Bedrock. Always specify a `global.` or `us.` cross-region inference profile. If `modelRegion` is outside the US and Canada (for example `ap-northeast-1`), only `global.` is available.
 
 This solution supports the following speech-to-speech models:
 
